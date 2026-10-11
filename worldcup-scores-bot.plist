@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>local.worldcup-scores-bot</string>
+
+    <!-- Run as your user (not root) so signal-cli finds the linked account in
+         ~/.local/share/signal-cli. A LaunchDaemon runs without GUI login,
+         so it survives reboots with no one logged in. -->
+    <key>UserName</key>
+    <string>YOUR_USERNAME</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HOME</key>
+        <string>/Users/YOUR_USERNAME</string>
+        <key>JAVA_HOME</key>
+        <string>/opt/homebrew/opt/openjdk</string>
+    </dict>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/python3</string>
+        <string>/Users/YOUR_USERNAME/worldcup-scores-bot/poll.py</string>
+    </array>
+
+    <!-- Poll every 30 minutes, and once immediately on load/boot.
+         Final scores don't need instant delivery; 30 min keeps load trivial
+         while staying well inside the window a finished match stays on the
+         ESPN scoreboard. To change cadence, edit this number (seconds):
+         900 = 15 min · 1800 = 30 min · 3600 = hourly. -->
+    <key>StartInterval</key>
+    <integer>1800</integer>
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/YOUR_USERNAME/worldcup-scores-bot/launchd.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/YOUR_USERNAME/worldcup-scores-bot/launchd.err.log</string>
+</dict>
+</plist>

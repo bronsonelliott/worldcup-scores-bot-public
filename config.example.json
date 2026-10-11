@@ -1,0 +1,6 @@
+{
+  "account": "+1XXXXXXXXXX",
+  "group_id": "PASTE_GROUP_ID_FROM_listGroups",
+  "anthropic_api_key": "PASTE_ANTHROPIC_API_KEY (optional — blank = plain score lines)",
+  "dry_run": false
+}

@@ -1,0 +1,37 @@
+# Secrets — never commit
+config.json
+config.local*
+.env
+.env.*
+*.env
+secrets.*
+credentials*
+*.key
+*.pem
+link-qr.png
+
+# Local bot state
+sent.json
+*.tmp
+
+# Logs
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtualenvs
+.venv/
+venv/
+env/
+
+# Vendored runtime (~104 MB JVM signal-cli build)
+signal-cli-dist/
+
+# macOS cruft
+.DS_Store
+.AppleDouble
+.Spotlight-V100
+.Trashes
